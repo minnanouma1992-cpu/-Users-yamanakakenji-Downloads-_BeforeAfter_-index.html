@@ -128,13 +128,14 @@ section{padding:7rem 0;scroll-margin-top:80px}
 /* ---------- 料金 ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;align-items:stretch}
 .plan{background:var(--white);border:1px solid var(--line);padding:2.6rem 1.7rem;display:flex;flex-direction:column}
+@supports(grid-template-rows:subgrid){.plan{display:grid;grid-template-rows:subgrid;grid-row:span 5;align-content:start}}
 .plan.center{border:1px solid var(--ink);position:relative}
 .plan .tag{position:absolute;top:-1em;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--white);font-size:.72rem;letter-spacing:.3em;padding:.5em 2em;white-space:nowrap}
 .plan h3{font-size:1.05rem;font-weight:600;letter-spacing:.2em;text-align:center}
 .plan .price{text-align:center;font-size:1.8rem;font-weight:600;letter-spacing:.06em;margin:.4em 0 .2em}
-.plan .price small{font-size:.72rem;font-weight:500;color:var(--mist);letter-spacing:.12em}
+.plan .price small{font-size:.72rem;font-weight:500;color:var(--mist);letter-spacing:.12em;display:inline-block;white-space:nowrap}
 .plan .sub{font-size:.84rem;color:#57535B;text-align:center;margin-bottom:.6em}
-@media(min-width:961px){.plan .sub{min-height:4.2em}}
+.plan .sub span{display:inline-block}
 .ptable{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:1.2em}
 .ptable td{padding:1em 0;border-bottom:1px solid var(--line);vertical-align:middle}
 .ptable tr:last-child td{border-bottom:none}
@@ -144,7 +145,7 @@ section{padding:7rem 0;scroll-margin-top:80px}
 .off-line{text-align:center;font-size:.8rem;letter-spacing:.26em;color:var(--ink);border:1px solid var(--line);padding:.6em 0;margin-bottom:1.8em}
 .plan .note{font-size:.78rem;color:var(--mist);margin-top:auto;padding-top:1.4em;text-align:center;letter-spacing:.05em;white-space:nowrap}
 .menu-fine{font-size:.76rem;color:var(--mist);margin-top:2.4rem;line-height:2;text-align:center;font-family:var(--sans)}
-@media(max-width:960px){.plans{grid-template-columns:1fr;gap:2.2rem;max-width:560px;margin:0 auto}.plan{padding:2.2rem 1.5rem}}
+@media(max-width:1024px){.plans{grid-template-columns:1fr;gap:2.2rem;max-width:560px;margin:0 auto}.plan{padding:2.2rem 1.5rem}}
 
 /* ---------- 3回 ---------- */
 .rounds{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:860px;margin:0 auto}
@@ -396,7 +397,7 @@ html.js .reveal.in{opacity:1;transform:none}
       <div class="plan">
         <h3>単回</h3>
         <p class="price">¥44,000<small>（税込）〜 ／1回</small></p>
-        <p class="sub">まずは1回試したい方に。</p>
+        <p class="sub"><span>まずは1回</span><span>試したい方に。</span></p>
         <table class="ptable">
           <tr><td>M字</td><td>¥44,000<small>&nbsp;</small></td></tr>
           <tr><td>生え際<small>手のひら1枚分</small></td><td>¥70,000<small>&nbsp;</small></td></tr>
@@ -407,7 +408,7 @@ html.js .reveal.in{opacity:1;transform:none}
       <div class="plan">
         <h3>通常3回コース</h3>
         <p class="price">¥34,600<small>（税込）〜 ／1回あたり</small></p>
-        <p class="sub">3回で仕上げる基本のコース。<br>土台・定着・調整で自然な仕上がりに。</p>
+        <p class="sub"><span>3回で仕上げる</span><span>基本のコース。</span><span>土台・定着・調整で</span><span>自然な仕上がりに。</span></p>
         <table class="ptable">
           <tr><td>M字</td><td>¥103,800<small>1回あたり ¥34,600</small></td></tr>
           <tr><td>生え際<small>手のひら1枚分</small></td><td>¥168,000<small>1回あたり ¥56,000</small></td></tr>
@@ -419,7 +420,7 @@ html.js .reveal.in{opacity:1;transform:none}
         <span class="tag">モニター価格・通常比23%OFF</span>
         <h3>モニター3回コース</h3>
         <p class="price">¥26,600<small>（税込）〜 ／1回あたり</small></p>
-        <p class="sub">モニター条件にご了承いただける方の<br>特別価格です。</p>
+        <p class="sub"><span>モニター条件に</span><span>ご了承いただける方の</span><span>特別価格です。</span></p>
         <table class="ptable">
           <tr><td>M字</td><td>¥79,800<small>1回あたり ¥26,600</small></td></tr>
           <tr><td>生え際<small>手のひら1枚分</small></td><td>¥129,000<small>1回あたり ¥43,000</small></td></tr>
