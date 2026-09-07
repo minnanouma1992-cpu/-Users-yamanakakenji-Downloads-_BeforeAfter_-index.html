@@ -133,8 +133,9 @@ section{padding:7rem 0;scroll-margin-top:80px}
 @supports(grid-template-rows:subgrid){.plan{display:grid;grid-template-rows:subgrid;grid-row:span 5;align-content:start}}
 .plan.center{border:1px solid var(--ink);position:relative}
 .plan .tag{position:absolute;top:-1em;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--white);font-size:.72rem;letter-spacing:.3em;padding:.5em 2em;white-space:nowrap}
-.plan h3{font-size:1.05rem;font-weight:600;letter-spacing:.2em;text-align:center}
-.plan .price{text-align:center;font-size:1.8rem;font-weight:600;letter-spacing:.06em;margin:.4em 0 .2em}
+.plan h3{font-size:clamp(1.3rem,1.75vw,1.65rem);font-weight:600;letter-spacing:.1em;white-space:nowrap;line-height:1.35;text-align:center;margin-bottom:.15em}
+.plan h3 .kicker{display:block;font-size:.8rem;letter-spacing:.32em;color:var(--accent);font-weight:600;margin-bottom:.3em;white-space:nowrap}
+.plan .price{text-align:center;font-size:1.45rem;font-weight:600;letter-spacing:.06em;margin:.4em 0 .2em}
 .plan .price small{font-size:.72rem;font-weight:500;color:var(--mist);letter-spacing:.12em;display:inline-block;white-space:nowrap}
 .plan .sub{font-size:.84rem;color:#57535B;text-align:center;margin-bottom:.6em}
 .plan .sub span{display:inline-block}
@@ -147,7 +148,7 @@ section{padding:7rem 0;scroll-margin-top:80px}
 .off-line{text-align:center;font-size:.8rem;letter-spacing:.26em;color:var(--ink);border:1px solid var(--line);padding:.6em 0;margin-bottom:1.8em}
 .plan .note{font-size:.78rem;color:var(--mist);margin-top:auto;padding-top:1.4em;text-align:center;letter-spacing:.05em;white-space:nowrap}
 .menu-fine{font-size:.76rem;color:var(--mist);margin-top:2.4rem;line-height:2;text-align:center;font-family:var(--sans)}
-@media(max-width:1080px){.plans{gap:1.1rem}.plan{padding:2.2rem 1.1rem}.plan .price{font-size:1.6rem}.plan .price small{font-size:.66rem;letter-spacing:.04em}.ptable td:last-child{font-size:1rem}.ptable{font-size:.88rem}}
+@media(max-width:1080px){.plans{gap:1.1rem}.plan{padding:2.2rem 1.1rem}.plan h3{font-size:clamp(1.15rem,1.6vw,1.4rem);letter-spacing:.06em}.plan .price{font-size:1.35rem}.plan .price small{font-size:.66rem;letter-spacing:.04em}.ptable td:last-child{font-size:1rem}.ptable{font-size:.88rem}}
 /* 差し色（墨＋ローズモーヴの2色） */
 .plan .price{color:var(--accent)}
 .plan .price small{color:var(--mist)}
@@ -164,8 +165,8 @@ section{padding:7rem 0;scroll-margin-top:80px}
     overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding:0 26px}
   .plans::-webkit-scrollbar{display:none}
   .plan{display:flex;flex:0 0 88%;scroll-snap-align:center;scroll-snap-stop:always;padding:1.5rem 1.1rem 1.2rem;box-shadow:0 8px 28px rgba(46,43,49,.06)}
-  .plan h3{font-size:1.1rem;line-height:1.4}
-  .plan .price{font-size:2.1rem;letter-spacing:.02em;line-height:1.15;margin:.25em 0 0}
+  .plan h3{font-size:1.7rem;line-height:1.35;letter-spacing:.08em;margin-top:.2em;white-space:normal}
+  .plan .price{font-size:1.7rem;letter-spacing:.02em;line-height:1.15;margin:.35em 0 0}
   .plan .price small{display:block;font-size:.74rem;margin-top:.25em;letter-spacing:.08em}
   .plan .sub{font-size:.86rem;line-height:1.7;margin:.6em 0 0}
   .plan .sub span{display:inline}
@@ -175,6 +176,9 @@ section{padding:7rem 0;scroll-margin-top:80px}
   .ptable td:last-child{font-size:1.25rem}
   .ptable small{font-size:.76rem;line-height:1.5;margin-top:.15em}
   .plan .tag{font-size:.74rem;padding:.5em 1.4em;letter-spacing:.2em}
+  .plan.center{padding-top:2rem}
+  .plan.center h3{font-size:2rem;line-height:1.2}
+  .plan h3 .kicker{font-size:.95rem;margin-bottom:.25em}
   .plan .note{font-size:.78rem;white-space:normal;padding-top:.9em;line-height:1.6}
   .plans-dots{display:flex;justify-content:center;gap:10px;margin-top:.1rem}
   .plans-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s,transform .25s}
@@ -472,7 +476,7 @@ html.js .reveal.in{opacity:1;transform:none}
       </div>
       <div class="plan center">
         <span class="tag">モニター価格・通常比23%OFF</span>
-        <h3>モニター3回コース</h3>
+        <h3><span class="kicker">モニター</span>3回コース</h3>
         <p class="price">¥26,600<small>（税込）〜 ／1回あたり</small></p>
         <p class="sub"><span>モニター条件に</span><span>ご了承いただける方の</span><span>特別価格です。</span></p>
         <table class="ptable">
