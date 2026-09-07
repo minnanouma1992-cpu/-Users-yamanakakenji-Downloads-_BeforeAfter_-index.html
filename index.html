@@ -160,24 +160,30 @@ section{padding:7rem 0;scroll-margin-top:80px}
 .plans-dots{display:none}
 .plans-hint{display:none}
 @media(max-width:880px){
-  .plans{display:flex;grid-template-columns:none;gap:14px;max-width:none;margin:0 -26px;padding:1.2rem 26px 1.4rem;
+  .plans{display:flex;grid-template-columns:none;gap:12px;max-width:none;margin:0 -26px;padding:.9rem 26px 1rem;
     overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding:0 26px}
   .plans::-webkit-scrollbar{display:none}
-  .plan{display:flex;flex:0 0 86%;scroll-snap-align:center;scroll-snap-stop:always;padding:2.4rem 1.4rem 2rem;box-shadow:0 8px 28px rgba(46,43,49,.06)}
-  .plan h3{font-size:1.25rem}
-  .plan .price{font-size:2.5rem;letter-spacing:.02em;line-height:1.2;margin:.35em 0 .1em}
-  .plan .price small{display:block;font-size:.78rem;margin-top:.4em}
-  .plan .sub{font-size:.95rem}
-  .ptable{font-size:1.02rem;margin-top:1.4em}
-  .ptable td{padding:1.1em 0}
-  .ptable td:last-child{font-size:1.35rem}
-  .ptable small{font-size:.82rem}
-  .plan .tag{font-size:.78rem;padding:.55em 1.6em;letter-spacing:.22em}
-  .plan .note{font-size:.82rem;white-space:normal}
-  .plans-dots{display:flex;justify-content:center;gap:10px;margin-top:.2rem}
+  .plan{display:flex;flex:0 0 88%;scroll-snap-align:center;scroll-snap-stop:always;padding:1.5rem 1.1rem 1.2rem;box-shadow:0 8px 28px rgba(46,43,49,.06)}
+  .plan h3{font-size:1.1rem;line-height:1.4}
+  .plan .price{font-size:2.1rem;letter-spacing:.02em;line-height:1.15;margin:.25em 0 0}
+  .plan .price small{display:block;font-size:.74rem;margin-top:.25em;letter-spacing:.08em}
+  .plan .sub{font-size:.86rem;line-height:1.7;margin:.6em 0 0}
+  .plan .sub span{display:inline}
+  .ptable{font-size:.98rem;margin-top:.9em}
+  .ptable td{padding:.7em 0;line-height:1.5}
+  .ptable td:first-child{padding-right:.6em}
+  .ptable td:last-child{font-size:1.25rem}
+  .ptable small{font-size:.76rem;line-height:1.5;margin-top:.15em}
+  .plan .tag{font-size:.74rem;padding:.5em 1.4em;letter-spacing:.2em}
+  .plan .note{font-size:.78rem;white-space:normal;padding-top:.9em;line-height:1.6}
+  .plans-dots{display:flex;justify-content:center;gap:10px;margin-top:.1rem}
   .plans-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s,transform .25s}
   .plans-dots span.on{background:var(--accent);transform:scale(1.25)}
-  .plans-hint{display:block;text-align:center;font-size:.78rem;color:var(--mist);letter-spacing:.2em;margin-top:.9rem;font-family:var(--sans)}
+  .plans-hint{display:block;text-align:center;font-size:.76rem;color:var(--mist);letter-spacing:.18em;margin-top:.7rem;font-family:var(--sans)}
+  .menu-fine{margin-top:1.6rem}
+  /* 料金セクション表示中は右下ボタンを隠す（価格と重なるため） */
+  .side-cta.hide{opacity:0;pointer-events:none;transform:translateX(120%)}
+  .side-cta{transition:opacity .3s,transform .3s,background .3s,color .3s}
 }
 
 /* ---------- 3回 ---------- */
@@ -867,6 +873,16 @@ document.querySelectorAll('#gnav a').forEach(function(a){
   }
   sc.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(upd,60);},{passive:true});
   upd();
+})();
+</script>
+<script>
+(function(){
+  var cta=document.querySelector('.side-cta'), sec=document.getElementById('menu');
+  if(!cta||!sec||!('IntersectionObserver' in window)) return;
+  var mq=window.matchMedia('(max-width:880px)');
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ cta.classList.toggle('hide', mq.matches && e.isIntersecting); });
+  },{threshold:0,rootMargin:'-40% 0px -20% 0px'}).observe(sec);
 })();
 </script>
 </body>
