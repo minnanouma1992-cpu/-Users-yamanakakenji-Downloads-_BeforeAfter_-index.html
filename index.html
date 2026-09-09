@@ -190,6 +190,52 @@ section{padding:7rem 0;scroll-margin-top:80px}
   .side-cta{transition:opacity .3s,transform .3s,background .3s,color .3s}
 }
 
+/* ---------- 費用比較 ---------- */
+.cost-lead{max-width:640px;margin:0 auto 2.8rem;text-align:center}
+.cost-lead .big{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:600;letter-spacing:.1em;line-height:1.7;color:var(--accent)}
+.cost-lead .big small{font-size:.55em;color:var(--ink);letter-spacing:.14em;display:block;margin-top:.2em}
+.cost-lead p{font-size:.92rem;color:#57535B;margin-top:1.4em;text-align:left}
+.cost-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -26px;padding:0 26px}
+.ctable{width:100%;min-width:680px;border-collapse:collapse;background:var(--white);border:1px solid var(--line);font-size:.9rem}
+.ctable th,.ctable td{padding:1.05em 1em;border-bottom:1px solid var(--line);vertical-align:middle;text-align:right;white-space:nowrap}
+.ctable th{font-size:.72rem;letter-spacing:.2em;color:var(--mist);font-weight:500;font-family:var(--sans);background:var(--paper)}
+.ctable th:first-child,.ctable td:first-child{text-align:left;white-space:normal}
+.ctable td:first-child b{font-weight:600;letter-spacing:.08em;display:block}
+.ctable td:first-child small{display:block;font-family:var(--sans);font-size:.74rem;color:var(--mist);letter-spacing:.04em;line-height:1.7;margin-top:.2em}
+.ctable td.num{font-weight:600;font-size:1.02rem}
+.ctable td.day{color:var(--mist);font-weight:500}
+.ctable tr.kai{background:var(--accent-soft)}
+.ctable tr.kai td{border-bottom-color:rgba(169,104,122,.25)}
+.ctable tr.kai td.num{color:var(--accent);font-size:1.12rem}
+.ctable tr.kai td:first-child b{color:var(--accent)}
+.ctable tr:last-child td{border-bottom:none}
+.ctable .end{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em}
+.ctable tr.kai .end{color:var(--accent);font-weight:600}
+.cost-scroll-hint{display:none;text-align:center;font-size:.76rem;color:var(--mist);letter-spacing:.18em;margin-top:.7rem;font-family:var(--sans)}
+.cost-points{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;max-width:960px;margin:3rem auto 0}
+.cost-point{background:var(--white);border:1px solid var(--line);padding:1.8rem 1.6rem}
+.cost-point h3{font-size:.95rem;font-weight:600;letter-spacing:.14em;margin-bottom:.6em;line-height:1.8}
+.cost-point p{font-size:.86rem;color:#57535B;line-height:2}
+.cost-fine{font-size:.74rem;color:var(--mist);margin-top:2.4rem;line-height:2;font-family:var(--sans);max-width:900px;margin-left:auto;margin-right:auto}
+.cost-fine a{text-decoration:underline;text-underline-offset:.2em}
+@media(max-width:880px){
+  .cost-scroll{overflow:visible;margin:0;padding:0}
+  .ctable{min-width:0;border:none;background:none;display:block}
+  .ctable tr{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white);border:1px solid var(--line);margin-bottom:.9rem}
+  .ctable tr:first-child{display:none}
+  .ctable tr.kai{border-color:var(--accent)}
+  .ctable td{display:block;text-align:left;white-space:normal;padding:.9em 1.1em;border-bottom:none}
+  .ctable td:first-child{grid-column:1/-1;padding:1.2em 1.1em .6em;border-bottom:1px solid var(--line)}
+  .ctable tr.kai td:first-child{border-bottom-color:rgba(169,104,122,.25)}
+  .ctable td.num,.ctable td.day,.ctable td.end{font-size:1.05rem}
+  .ctable td.end{grid-column:1/-1;padding-top:.2em;padding-bottom:1.1em;font-size:.82rem}
+  .ctable td.end br{display:none}
+  .ctable td[data-label]::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;color:var(--mist);font-weight:500;margin-bottom:.15em}
+  .ctable tr.kai td.num{font-size:1.25rem}
+  .cost-points{grid-template-columns:1fr;gap:1rem}
+  .cost-lead .big small{line-height:1.8}
+}
+
 /* ---------- 3回 ---------- */
 .rounds{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:860px;margin:0 auto}
 .round{text-align:center}
@@ -321,6 +367,7 @@ html.js .reveal.in{opacity:1;transform:none}
         <ul>
           <li><a href="#concept">コンセプト</a></li>
           <li><a href="#menu">料金</a></li>
+          <li><a href="#cost">費用比較</a></li>
           <li><a href="#gallery">症例</a></li>
           <li><a href="#flow">流れ</a></li>
           <li><a href="#faq">よくある質問</a></li>
@@ -491,6 +538,46 @@ html.js .reveal.in{opacity:1;transform:none}
     <div class="plans-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
     <span class="plans-hint">← 横にスワイプして他のプランを見る →</span>
     <p class="menu-fine">※ 基本は3回で完成です（1回目：土台／2回目：密度／3回目：完成）。回数は肌質・ご希望の濃さにより前後する場合があります。<br>※ 範囲の目安：生え際・頭頂部は手のひら1枚分です（M字は該当しません）。<br>※ 表示価格はすべて税込です。リタッチについてはカウンセリングでご説明します。<br>※ 料金は予告なく改定する場合があります。ご契約時点の料金が適用されます。</p>
+  </div>
+</section>
+
+<!-- ================= 費用比較 ================= -->
+<section id="cost">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="en">Cost</span>
+      <h2>3年で、月にすると。</h2>
+      <p>頭皮アートメイクの持続は約2〜3年。「高い」と感じる金額も、3年間・36ヶ月で割ると見え方が変わります。育毛剤やウィッグと、同じ3年間で比べてみてください。</p>
+    </div>
+    <div class="cost-lead">
+      <p class="big">1日 約222円<small>通常3回コース（生え際／頭頂部）¥240,000 ÷ 36ヶ月 ＝ 月 ¥6,667</small></p>
+      <p>塗り続けることも、買い替えることも、雨の日に気を遣うことも。3年分をいちど手放したあとは、「隠すこと」を考えない毎日が続きます。</p>
+    </div>
+    <div class="cost-scroll">
+      <table class="ctable">
+        <tr><th>3年間で比べると（生え際／頭頂部の目安）</th><th>3年間の総額</th><th>月あたり</th><th>1日あたり</th></tr>
+        <tr class="kai"><td><b>Kai 頭皮アートメイク</b><small>通常3回コース ¥240,000／施術当日から地肌の透けが目立ちにくく</small></td><td class="num" data-label="3年間の総額">¥240,000</td><td class="num" data-label="月あたり">¥6,667</td><td class="day" data-label="1日あたり">約222円</td></tr>
+        <tr><td><b>市販の育毛剤（医薬部外品）</b><small>ドラッグストア・通販の女性用主要9製品の平均 約¥4,000／本（120〜200mL・約1ヶ月分）。効果には個人差があり、使い続ける前提</small></td><td class="num" data-label="3年間の総額">¥144,000</td><td class="num" data-label="月あたり">¥4,000</td><td class="day" data-label="1日あたり">約133円</td></tr>
+        <tr><td><b>市販の発毛剤（ミノキシジル1%）</b><small>女性用3製品の希望小売価格の平均 約¥5,200／60mL・約1ヶ月分。効果の目安は6ヶ月以上の継続、中止すると元に戻る</small></td><td class="num" data-label="3年間の総額">¥187,200</td><td class="num" data-label="月あたり">¥5,200</td><td class="day" data-label="1日あたり">約173円</td></tr>
+        <tr><td><b>ウィッグ（医療用・平均的な価格帯）</b><small>約¥100,000（既製〜セミオーダーの中間帯）／毎日着用で寿命約1年 → 3年で3台。お手入れ用品・クリーニング代は別</small></td><td class="num" data-label="3年間の総額">¥300,000</td><td class="num" data-label="月あたり">¥8,333</td><td class="day" data-label="1日あたり">約278円</td></tr>
+      </table>
+    </div>
+    <span class="cost-scroll-hint">← 横にスワイプして全体を見る →</span>
+    <div class="cost-points">
+      <div class="cost-point">
+        <h3>育毛剤・発毛剤との違い</h3>
+        <p>月々の金額は大きく変わりません。ただ、育毛剤・発毛剤は「効くまで半年待つ」「やめたら戻る」ため、3年経っても終わりません。頭皮アートメイクは施術したその日から、分け目の地肌が目立ちにくくなります。</p>
+      </div>
+      <div class="cost-point">
+        <h3>ウィッグとの違い</h3>
+        <p>ウィッグは1年ごとに買い替えが必要で、雨の日・風の日・温泉・美容室で気を遣い続けます。頭皮アートメイクはご自身の頭皮そのものなので、外す・ずれる・蒸れる・バレるがありません。</p>
+      </div>
+      <div class="cost-point">
+        <h3>「治療」と組み合わせても</h3>
+        <p>頭皮アートメイクは髪を増やす治療ではありません。だからこそ、発毛剤やクリニックの治療で「守る」のと並行して、「今日の見た目」を先に整える使い方ができます。</p>
+      </div>
+    </div>
+    <p class="cost-fine">※ 各対策の費用は2026年9月時点の公表価格・一般的な相場をもとにした概算で、製品や購入先、使用量、ご本人の状態により異なります。特定の医療機関・製品との優劣を示すものではありません。<br>※ 頭皮アートメイクの持続期間は約2〜3年（肌質・体質・ライフスタイルにより個人差があります）。月割り・1日あたりは36ヶ月で計算した参考値です。<br>※ 出典：育毛剤の価格は<a href="https://beauty.portal.auone.jp/article/women-hair-growth-agent" target="_blank" rel="noopener">女性用育毛剤ランキング（au Webポータル）</a>掲載の上位9製品の平均、発毛剤の価格は<a href="https://onlinenavi.jp/m42/" target="_blank" rel="noopener">女性用発毛剤の種類と価格（オンライン診療NAVI）</a>掲載3製品のメーカー希望小売価格の平均、使用量は<a href="https://kakaku.com/medicine-item/K0000542986/" target="_blank" rel="noopener">価格.com（リアップリジェンヌ60mL）</a>、ウィッグの価格相場は<a href="https://alicialulu.jp/blogs/feature/medical-wig-cost-guide" target="_blank" rel="noopener">医療用ウィッグの値段相場ガイド</a>、ウィッグの寿命は<a href="https://ilovewig.jp/blogs/wigcolumn/wig-price" target="_blank" rel="noopener">ウィッグの値段と相場（リネアストリア）</a>を参照しています。</p>
   </div>
 </section>
 
